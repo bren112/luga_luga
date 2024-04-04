@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/outlinedTextField2"
-        android:textSize="14dpdp"
+        android:textSize="14dp"
         android:fontFamily="sans-serif"
         android:textColor="#3E3E3E"
         android:gravity="center"
