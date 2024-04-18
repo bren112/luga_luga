@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".view.LoginActivity"
+    android:layout_margin="30dp">
 
     <ImageView
         android:id="@+id/imageView"
@@ -13,13 +14,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/logoapp" />
+        app:srcCompat="@drawable/logoapp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/outlinedTextField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="e-mail"
+        android:hint="@string/hint_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -35,7 +36,7 @@
         android:id="@+id/outlinedTextField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="senha"
+        android:hint="@string/hint_senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outlinedTextField"
@@ -50,7 +51,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:id="@+id/texto1"
-        android:text="Esqueceu a senha?"
+        android:text="@string/esqueceu_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/outlinedTextField2"
@@ -65,7 +66,7 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintTop_toBottomOf="@id/texto1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,14 +74,14 @@
         android:width="190sp"
         android:height="50sp"
         android:textSize="20sp"
-        android:backgroundTint="#1C1C8E"
+        android:backgroundTint="@color/blue_dark"
         android:textColor="@color/white"
         android:fontFamily="sans-serif"
 
         ></Button>
     <TextView
         android:id="@+id/text2"
-        android:text="Não tenho uma conta!"
+        android:text="@string/sem_conta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/btn"
