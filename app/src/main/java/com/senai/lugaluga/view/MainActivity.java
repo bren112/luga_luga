@@ -9,42 +9,34 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.senai.lugaluga.R;
+import com.senai.lugaluga.model.Produto;
+import com.senai.lugaluga.view.adapter.AdapterProduto;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
 
-    private ListView listcidade;
+    private AdapterProduto adapterProduto;
 
-    private String[] cidades = {
-            "Sumaré", "Araras", "Itatiba", "Hortolândia", "Mogi das Cruzes",
-            "Piracicaba", "Rio Claro", "Santo André", "São Bernardo do Campo",
-            "São João da Boa Vista", "São José do Rio Pardo", "São José dos Campos",
-            "São Vicente", "Sertãozinho", "Taboão da Serra", "Itaquaquecetuba", "Jundiaí",
-            "Catanduva", "Fernandópolis"
-    };
-
+    private List<Produto> produtoList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listcidade = findViewById(R.id.listaNomes);
+        recyclerView.findViewById(R.id.listaProdutos);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                android.R.id.text1,
-                cidades
+    }
 
-        );
-        listcidade.setAdapter(adapter);
-        listcidade.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemSelecionado = listcidade.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext() , itemSelecionado, Toast.LENGTH_LONG).show();
-            }
-        });
+    public void CriarListaProdutos(){
+        Produto produto = new Produto("Iphone 13" ,
+                                       "Iphone 13 64gb , Branco" ,
+                                       200.00 ,
+                                         10 ,
+                                       "Disponível");
     }
 }

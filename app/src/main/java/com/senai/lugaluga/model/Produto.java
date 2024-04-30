@@ -1,19 +1,8 @@
 package com.senai.lugaluga.model;
 
 public class Produto {
-    private int id;
     private String nome;
-    private Double preco;
     private String desc;
-    private String status;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -21,14 +10,6 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
     }
 
     public String getDesc() {
@@ -39,6 +20,22 @@ public class Produto {
         this.desc = desc;
     }
 
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -47,12 +44,17 @@ public class Produto {
         this.status = status;
     }
 
-    public Produto(int id, String nome, Double preco, String desc, String status) {
-        this.id = id;
+    private double preco;
+    private int qtd;
+    private String status;
+
+    public Produto(String nome, String desc, double preco, int qtd, String status) {
         this.nome = nome;
-        this.preco = preco;
         this.desc = desc;
+        this.preco = preco;
+        this.qtd = qtd;
         this.status = status;
     }
 }
+
 

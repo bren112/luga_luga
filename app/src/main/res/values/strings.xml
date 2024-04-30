@@ -5,4 +5,10 @@
     <string name="esqueceu_senha">Esqueceu a senha?</string>
     <string name="login">Login</string>
     <string name="sem_conta">Não tenho uma conta!</string>
+
+
+    <string name="tv_produto">Nome Produto</string>
+    <string name="tv_preco">R$00,00</string>
+    <string name="tv_descricao">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem</string>
+
 </resources>
