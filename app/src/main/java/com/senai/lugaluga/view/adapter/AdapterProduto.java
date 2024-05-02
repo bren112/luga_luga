@@ -26,7 +26,7 @@ private List<Produto> produtoList;
     public AdapterProduto.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View listaProdutos = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.adapter_produto , parent , false);
-        return null;
+        return new ViewHolder(listaProdutos);
     }
 
     @Override

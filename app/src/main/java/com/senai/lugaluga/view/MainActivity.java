@@ -50,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         Produto produto;
 
         produto = new Produto("Iphone 13" , "Iphone 13 64gb , Branco" , 200.00 , 10 , "Disponível");
-                produtoList.add(produto);
+        produtoList.add(produto);
 
         produto = new Produto("Samsung A30" , "Samsung A30 64gb , Branco" , 100.00 , 4 , "Indisponível");
-                produtoList.add(produto);
+        produtoList.add(produto);
 
         produto = new Produto("Xbox One" , "Xbox One 500gb , Preto" , 150.00 , 7 , "Disponível");
         produtoList.add(produto);
