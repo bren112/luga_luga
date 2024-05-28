@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/baseline_backpack_24"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/nav_produtos"
+            android:icon="@drawable/img_produto"
+            android:title="Produtos"
+            />
+
+        <item
+            android:id="@+id/nav_solicitacao"
+            android:icon="@drawable/ic_menu_solicitacoes"
+            android:title="Solicitações"/>
+
+        <item
+            android:id="@+id/nav_acompanhamento"
+            android:icon="@drawable/ic_menu_acompanhamento"
+            android:title="Acompanhamento"/>
+
+        <item
+            android:id="@+id/nav_atendimento"
+            android:icon="@drawable/ic_menu_atendimento"
+            android:title="Atendimento"/>
+    </group>
+
+    <item
+        android:title="Mais informações">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_sobre"
+                android:icon="@drawable/ic_menu_sobrenos"
+                android:title="Sobre Nós"/>
+
+            <item
+                android:id="@+id/nav_faleconosco"
+                android:icon="@drawable/ic_menu_faleconosco"
+                android:title="Fale Conosco"/>
+
+
+        </menu>
+
+    </item>
+
+</menu>
+

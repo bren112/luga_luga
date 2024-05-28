@@ -2,15 +2,16 @@ package com.senai.lugaluga.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -105,5 +106,115 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    /**
+     * A simple {@link Fragment} subclass.
+     * Use the {@link AcompanhamentoFragment#newInstance} factory method to
+     * create an instance of this fragment.
+     */
+    public static class AcompanhamentoFragment extends Fragment {
+
+        // TODO: Rename parameter arguments, choose names that match
+        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+        private static final String ARG_PARAM1 = "param1";
+        private static final String ARG_PARAM2 = "param2";
+
+        // TODO: Rename and change types of parameters
+        private String mParam1;
+        private String mParam2;
+
+        public AcompanhamentoFragment() {
+            // Required empty public constructor
+        }
+
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment AcompanhamentoFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        public static AcompanhamentoFragment newInstance(String param1, String param2) {
+            AcompanhamentoFragment fragment = new AcompanhamentoFragment();
+            Bundle args = new Bundle();
+            args.putString(ARG_PARAM1, param1);
+            args.putString(ARG_PARAM2, param2);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            if (getArguments() != null) {
+                mParam1 = getArguments().getString(ARG_PARAM1);
+                mParam2 = getArguments().getString(ARG_PARAM2);
+            }
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.fragment_acompanhamento, container, false);
+        }
+    }
+
+    /**
+     * A simple {@link Fragment} subclass.
+     * Use the {@link AtendimentoFragment#newInstance} factory method to
+     * create an instance of this fragment.
+     */
+    public static class AtendimentoFragment extends Fragment {
+
+        // TODO: Rename parameter arguments, choose names that match
+        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+        private static final String ARG_PARAM1 = "param1";
+        private static final String ARG_PARAM2 = "param2";
+
+        // TODO: Rename and change types of parameters
+        private String mParam1;
+        private String mParam2;
+
+        public AtendimentoFragment() {
+            // Required empty public constructor
+        }
+
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment AtendimentoFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        public static AtendimentoFragment newInstance(String param1, String param2) {
+            AtendimentoFragment fragment = new AtendimentoFragment();
+            Bundle args = new Bundle();
+            args.putString(ARG_PARAM1, param1);
+            args.putString(ARG_PARAM2, param2);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            if (getArguments() != null) {
+                mParam1 = getArguments().getString(ARG_PARAM1);
+                mParam2 = getArguments().getString(ARG_PARAM2);
+            }
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.fragment_atendimento, container, false);
+        }
     }
 }

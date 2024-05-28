@@ -22,14 +22,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar2">
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaProdutos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_margin="25dp"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="458dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@ public class ProdutoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto2);
-        
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
@@ -38,7 +38,13 @@ public class ProdutoActivity extends AppCompatActivity {
 
         btnAlugar = findViewById(R.id.alugar);
 
+
         produto = getIntent().getExtras().getParcelable("produto");
+
+        if (produto.getStatus().equals("Indisponível")){
+            btnAlugar.setEnabled(false);
+            btnAlugar.setText("Indisponível");
+        }
 
         nomeProduto.setText(produto.getNome());
         qtdProduto.setText(String.valueOf(produto.getQtd()));
@@ -53,7 +59,11 @@ public class ProdutoActivity extends AppCompatActivity {
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(getApplicationContext() , produto.getNome() + " adicionado ao carrinho"  , Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext() , produto.getNome() + " SOLICITADO COM SUCESSO!"  , Toast.LENGTH_SHORT).show();
+                        btnAlugar.setText("Solicitado");
+                        btnAlugar.setBackgroundColor(getColor(R.color.blue_yellow));
+                        btnAlugar.setEnabled(false);
+
                     }
                 });
 
