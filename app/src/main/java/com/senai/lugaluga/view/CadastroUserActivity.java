@@ -6,11 +6,16 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.senai.lugaluga.R;
+import com.senai.lugaluga.controller.UsuarioController;
+import com.senai.lugaluga.model.User;
 
 public class CadastroUserActivity extends AppCompatActivity {
   
@@ -18,11 +23,10 @@ public class CadastroUserActivity extends AppCompatActivity {
     
     private Spinner spinnerUf;
 
-    private TextInputLayout inputCpf;
-    private TextInputLayout inputCep;
-    private TextInputLayout inputDate;
+    private TextInputLayout inputCpf , input_nome , input_data , input_cep , input_cidade , input_bairro , input_email , input_senha , input_logradouro , input_numero , input_complemento;
 
-    
+    private Button btnCadastrar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +37,18 @@ public class CadastroUserActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         inputCpf = findViewById(R.id.input_cpf);
-        inputCep = findViewById(R.id.input_cep);
-        inputDate = findViewById(R.id.input_data);
+        input_nome = findViewById(R.id.input_nome);
+        input_cidade = findViewById(R.id.input_cidade);
+        input_bairro = findViewById(R.id.input_bairro);
+        input_email = findViewById(R.id.input_email);
+        input_cep = findViewById(R.id.input_cep);
+        input_data = findViewById(R.id.input_data);
+        input_senha = findViewById(R.id.input_senha);
+        input_logradouro = findViewById(R.id.input_logradouro);
+        input_numero = findViewById(R.id.input_numero);
+        input_complemento = findViewById(R.id.input_complemento);
+        input_cidade = findViewById(R.id.input_cidade);
+        btnCadastrar = findViewById(R.id.btn_cadastrar);
         inputCpf.getEditText().addTextChangedListener(new TextWatcher() {
 
             private static final String maskCPF = "###.###.###-##";
@@ -85,7 +99,7 @@ public class CadastroUserActivity extends AppCompatActivity {
             }
         });
 
-     inputCep.getEditText().addTextChangedListener(new TextWatcher() {
+     input_cep.getEditText().addTextChangedListener(new TextWatcher() {
 
          private static final String maskCep = "#####-###";
          boolean isUpdating;
@@ -124,8 +138,8 @@ public class CadastroUserActivity extends AppCompatActivity {
                  i++;
              }
              isUpdating = true;
-             inputCep.getEditText().setText(mascara);
-             inputCep.getEditText().setSelection(mascara.length());
+             input_cep.getEditText().setText(mascara);
+             input_cep.getEditText().setSelection(mascara.length());
 
          }
 
@@ -135,7 +149,7 @@ public class CadastroUserActivity extends AppCompatActivity {
 
          }
      });
-        inputDate.getEditText().addTextChangedListener(new TextWatcher() {
+        input_data.getEditText().addTextChangedListener(new TextWatcher() {
             private static final String maskDate = "##-##-####";
             boolean isUpdating;
             String old = "";
@@ -171,8 +185,8 @@ public class CadastroUserActivity extends AppCompatActivity {
                     i++;
                 }
                 isUpdating = true;
-                inputDate.getEditText().setText(mascara);
-                inputDate.getEditText().setSelection(mascara.length());
+                input_data.getEditText().setText(mascara);
+                input_data.getEditText().setSelection(mascara.length());
 
             }
 
@@ -197,6 +211,34 @@ public class CadastroUserActivity extends AppCompatActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerUf.setAdapter(adapter);
+
+        btnCadastrar.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+
+                UsuarioController crud = new UsuarioController(getApplicationContext());
+                User usuario = new User();
+                usuario.setNome(input_nome.getEditText().getText().toString());
+                usuario.setCep(input_cep.getEditText().getText().toString());
+                usuario.setCpf(inputCpf.getEditText().getText().toString());
+                usuario.setDataNascimento(input_data.getEditText().getText().toString());
+                usuario.setMunicipio(input_cidade.getEditText().getText().toString());
+                usuario.setUf(spinnerUf.getSelectedItem().toString());
+                usuario.setLogradouro(input_logradouro.getEditText().getText().toString());
+                usuario.setNumero(Integer.parseInt(input_numero.getEditText().getText().toString()));
+
+                String resultado;
+                resultado = crud.iserDados(usuario.getNome(), usuario.getCpf(),
+                        usuario.getDataNascimento(), usuario.getCep(), usuario.getMunicipio(),
+                        usuario.getUf(), usuario.getLogradouro(), usuario.getNumero(),
+                        usuario.getComplemento(), usuario.getBairro(), usuario.getEmail(), usuario.getSenha());
+                Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
     }
 

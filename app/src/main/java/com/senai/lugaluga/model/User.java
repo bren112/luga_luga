@@ -3,34 +3,90 @@ package com.senai.lugaluga.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
-import java.util.Date;
-
 public class User implements Parcelable {
 
-    private  String nome;
-    private int idade;
+    private String nome;
+    private String cpf;
+    private String dataNascimento;
+    private String cep;
+    private String municipio;
+    private String uf;
+    private String logradouro;
+    private int numero;
+    private String complemento;
+    private String bairro;
+    private int telefone;
     private String email;
-    private  String senha;
-    private  String CPF;
-    private  int logradouro;
-    private  int numero;
-    private  String complemento;
+    private String senha;
 
-    public User(String nome, int idade, String email, String senha, String CPF, int logradouro, int numero, String complemento, String bairro, Date dataNasc, String cep) {
+    public User() {
+    }
+
+    public User(String nome, String cpf, String dataNascimento, String cep, String municipio, String uf, String logradouro, int numero, String complemento, String bairro, int telefone, String email, String senha) {
         this.nome = nome;
-        this.idade = idade;
-        this.email = email;
-        this.senha = senha;
-        this.CPF = CPF;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.cep = cep;
+        this.municipio = municipio;
+        this.uf = uf;
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
-        this.dataNasc = dataNasc;
-        Cep = cep;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
     }
+
+    protected User(Parcel in) {
+        nome = in.readString();
+        cpf = in.readString();
+        dataNascimento = in.readString();
+        cep = in.readString();
+        municipio = in.readString();
+        uf = in.readString();
+        logradouro = in.readString();
+        numero = in.readInt();
+        complemento = in.readString();
+        bairro = in.readString();
+        telefone = in.readInt();
+        email = in.readString();
+        senha = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nome);
+        dest.writeString(cpf);
+        dest.writeString(dataNascimento);
+        dest.writeString(cep);
+        dest.writeString(municipio);
+        dest.writeString(uf);
+        dest.writeString(logradouro);
+        dest.writeInt(numero);
+        dest.writeString(complemento);
+        dest.writeString(bairro);
+        dest.writeInt(telefone);
+        dest.writeString(email);
+        dest.writeString(senha);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public String getNome() {
         return nome;
@@ -40,43 +96,51 @@ public class User implements Parcelable {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getCep() {
+        return cep;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setCep(String cep) {
+        this.cep = cep;
     }
 
-    public String getCPF() {
-        return CPF;
+    public String getMunicipio() {
+        return municipio;
     }
 
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
 
-    public int getLogradouro() {
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public String getLogradouro() {
         return logradouro;
     }
 
-    public void setLogradouro(int logradouro) {
+    public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
 
@@ -104,34 +168,27 @@ public class User implements Parcelable {
         this.bairro = bairro;
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
+    public int getTelefone() {
+        return telefone;
     }
 
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    };
+
+   public int getEmail(){
+        return email;
+   };
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getCep() {
-        return Cep;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setCep(String cep) {
-        Cep = cep;
-    }
-
-    private  String bairro;
-    private Date dataNasc;
-    private String Cep;
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
